@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+:root {
+  --background: white;
+  --text: black;
+  --primary: #1072b9;
+  --secondary: #f3f4f6;
+  --button-bg: #1072b9;
+  --button-text: white;
+}
+
+.dark {
+  --background: #18181b;
+  --text: #f3f4f6;
+  --primary: #056896;
+  --secondary: #23272f;
+  --button-bg: #056896;
+  --button-text: #f3f4f6;
+}
+
+/* Make sure these styles have higher specificity */
+html, body {
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-custom {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -9,20 +40,24 @@ html {
   scrollbar-color: #1072b9 #f3f4f6;
 }
 
+.dark .custom-scrollbar {
+  scrollbar-color: #056896 #23272f;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: var(--secondary);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1072b9;
+  background: var(--primary);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #056896;
+  background: var(--button-bg);
 }
